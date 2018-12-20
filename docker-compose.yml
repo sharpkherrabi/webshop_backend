@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    container_name: webshop_backend
+    container_name: ha_backend
     restart: always
     build: .
     ports:
@@ -13,3 +13,9 @@ services:
     image: mongo
     ports:
       - '27017:27017'
+    # Persist data
+    volumes: 
+      - database:/data/db
+
+volumes:
+  database:
