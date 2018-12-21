@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    container_name: ha_backend
+    container_name: webshop_backend
     restart: always
     build: .
     ports:
