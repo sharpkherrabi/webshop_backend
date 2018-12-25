@@ -3,7 +3,7 @@ const env = process.env.NODE_ENV || "dev";
 const dev = {
     db: "product_shop_dev",
     mongoPort: 27017,
-    dbUrl: "mongodb://localhost",
+    dbUrl: "mongodb://localhost", //windows docker-toolbox: instead of localhost -> mongo and in postman 192.168.99.100:3000
     serverPort: 3000,
     originsWhitelist: [
         'http://localhost:4200',      //CORS white list
