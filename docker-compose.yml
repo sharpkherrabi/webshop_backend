@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    container_name: webshop_backend
+    restart: always
+    build: .
+    ports:
+      - '3000:3000'
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
+    # Persist data
+    volumes: 
+      - database:/data/db
+
+volumes:
+  database:
