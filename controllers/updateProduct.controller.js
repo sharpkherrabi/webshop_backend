@@ -2,7 +2,7 @@ const productModel = require('../models/product.model');
 
 module.exports = async function (req, res, next) {
     const productId = req.params.productId;
-    const product = await productModel.findOneAndUpdate(  {
+    await productModel.findOneAndUpdate(  {
         _id: productId
     }, {
             $set: req.body
@@ -18,8 +18,4 @@ module.exports = async function (req, res, next) {
                 data: product
             });
         });
-
-    /*
-        
-   */
 }
