@@ -9,19 +9,17 @@ module.exports = async function (req, res, next) {
         }, {
             new: true,
             runValidators: true
-        },
-        function (error) {
+        }
+        ).exec(function (error, product) {
             if (error) return next(new Error('COULDN\'T UPDATE '));
+
+            res.status(200).send({
+                status: 'UPDATED',
+                data: product
+            });
         });
 
-    if (product != null) {
-        res.status(200).send({
-            status: 'UPDATED',
-            data: product
-        });
-    } else {
-        res.status(404).send(
-            { status: "NOT FOUND " }
-        )
-    };
+    /*
+        
+   */
 }

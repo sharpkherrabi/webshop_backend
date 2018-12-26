@@ -18,6 +18,15 @@ const test = {
     serverPort: 3001
 }
 
+const docker = {
+        db: "product_shop_doc",
+        mongoPort: 27017,
+        dbUrl: "mongodb://mongo", //windows docker-toolbox: instead of localhost -> mongo and in postman 192.168.99.100:3000
+        serverPort: 3000,
+        originsWhitelist: [
+            'http://localhost:4200',      //CORS white list
+        ]
+};
 
 //production configuration object
 const prod = {};
@@ -25,7 +34,8 @@ const prod = {};
 const config = {
     dev,
     prod,
-    test
+    test,
+    docker
 };
 
 module.exports = config[env];
