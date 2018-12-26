@@ -1,5 +1,6 @@
 # Webshop Backend
-## Docker
+## Docker  
+Erstmal im config dbUrl: "mongodb://localhost", localhost mit mongo ersetzen => dbUrl: "mongodb://mongo"  
 * Docker starten, in den Projektordner navigieren und :  
     Im Vordergrund:  
     `$ docker-compose up --build`  
