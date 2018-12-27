@@ -9,10 +9,10 @@ let productSchema = new Schema({
         unique: true,
     },
     description: {
-        type: String,
-        validate: (value) => {
+        type: String
+        /*validate: (value) => {
             return validator.matches(value, /^[a-z0-9 ]+$/i);;
-        }
+        }*/
     },
     quantity: {
         type: Number,

@@ -38,8 +38,8 @@ app.use(function (err, req, res, next) {
 });
 
 //firing the app
-app.listen(3000, () => {
-    console.log('listenning on port 3000');
+app.listen(config.serverPort, () => {
+    console.log('listenning on port ' + config.serverPort);
 });
 
 module.exports = app;

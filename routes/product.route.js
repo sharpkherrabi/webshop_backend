@@ -7,10 +7,11 @@ const productDeleteController = require('../controllers/deleteProduct.controller
 const productCSVcontroller = require('../controllers/getProductCSV');
 
 router.post('/create', productCreateController);
-// Karina, please make your changes here for put and delete
-// router.put('/update/:productId', productUpdateController);
+router.put('/update/:productId', productUpdateController);
 router.get('/get/:productId?', productGetController);
 // router.get('/getCSV', productCSVcontroller);
-// router.delete('/delete/:productId?', productDeleteController);
+router.delete('/delete/:productId?', productDeleteController);
+
+
 
 module.exports = router;
