@@ -15,7 +15,7 @@ module.exports = async function (req, res, next) {
 
             res.status(200).send({
                 status: 'UPDATED',
-                data: product
+                product
             });
         });
 }
