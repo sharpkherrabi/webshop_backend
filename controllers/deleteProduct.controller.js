@@ -1,5 +1,9 @@
-const productModel = require('../models/product.model');
+/** Package import */
 const _ = require('lodash');
+
+/** File import */
+const productModel = require('../models/product.model');
+
 
 module.exports = async function (req, res, next) {
     if(!_.isUndefined(req.params.productId)){

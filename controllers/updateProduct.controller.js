@@ -1,3 +1,4 @@
+/** File import */
 const productModel = require('../models/product.model');
 
 module.exports = async function (req, res, next) {
