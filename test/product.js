@@ -12,7 +12,7 @@ const productModel = require('../models/product.model');
 chai.use(chaiHttp);
 
 /** Tests */
-describe('List', () => {
+describe('Product tests', () => {
     beforeEach((done) => {
         productModel.deleteMany({}, () => {
             done();
