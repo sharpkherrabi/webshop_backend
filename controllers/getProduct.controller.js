@@ -9,7 +9,7 @@ module.exports = function (req, res, next) {
 
 
     productModel.find(condition, function (err, products) {
-        if (err) return next(new Error('COULDN\'T FIND ANY PRODUCT'));
+        if (err) return next(new Error('INTERNAL ERROR OCCURRED'));
         res.status(200).json({
             status: 'OK',
             products
