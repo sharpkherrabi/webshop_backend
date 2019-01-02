@@ -12,10 +12,14 @@ const dev = {
 
 // test configuration object
 const test = {
+
 	db: 'product_shop_test',
 	mongoPort: 27017,
 	dbUrl: 'mongodb://localhost',
-	serverPort: 3001
+	serverPort: 3001,
+	originsWhitelist: [
+		'http://localhost:4200',      //CORS white list
+	]
 };
 
 const docker = {

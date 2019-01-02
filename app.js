@@ -21,7 +21,11 @@ let corsOptions = {
 /* eslint-disable no-console */
 
 //connection to mongo db
-mongoose.connect(devDbUrl, { useNewUrlParser: true });
+mongoose.connect(devDbUrl, { useNewUrlParser: true })
+	.then(() => console.log(' MongoDB Verbunden to ' + devDbUrl));
+
+// Because of DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+mongoose.set('useCreateIndex', true); 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 

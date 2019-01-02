@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "NODE_ENV=dev node app.js",
-    "test": "set NODE_ENV=test eslint --fix ./ && NODE_ENV=test mocha",
-    "doc": "NODE_ENV=docker node app.js"
+    "test": "eslint --fix ./ && NODE_ENV=test mocha ./test/ --recursive --timeout 5000 --exit",
+    "doc": "NODE_ENV=docker mocha --timeout 5000 --exit"
+
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "chai-exclude": "^1.0.12",
     "chai-http": "^4.2.0",
     "eslint": "^5.11.1",
     "mocha": "^5.2.0",
