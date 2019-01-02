@@ -8,7 +8,7 @@ const should = chai.should();
 const app = require('../../app');
 const productModel = require('../../models/product.model');
 
-/** Cahi plugins */
+/** Chai plugins */
 chai.use(chaiHttp);
 
 /** Tests */
