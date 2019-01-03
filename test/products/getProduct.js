@@ -1,7 +1,6 @@
 /** Package imports */
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const _ = require('lodash');
 const chaiExclude = require('chai-exclude');
 
 const should = chai.should();
@@ -17,13 +16,13 @@ chai.use(chaiExclude);
 /** Tests */
 describe('get already created products (http get)', () => {
 	before((done) => {
-		productModel.remove({}, (err) => {
+		productModel.remove({}, () => {
 			done();
 		});
 	});
 
 	after((done) => {
-		productModel.remove({}, (err) => {
+		productModel.remove({}, () => {
 			done();
 		});
 	});

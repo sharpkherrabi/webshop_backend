@@ -17,13 +17,13 @@ chai.use(chaiExclude);
 
 describe('create new product (http Post)', () => {
 	before((done) => {
-		productModel.remove({}, (err) => {
+		productModel.remove({}, () => {
 			done();
 		});
 	});
 
 	after((done) => {
-		productModel.remove({}, (err) => {
+		productModel.remove({}, () => {
 			done();
 		});
 	});
