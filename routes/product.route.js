@@ -9,7 +9,7 @@ const productCSVcontroller = require('../controllers/getProductCSV');
 router.post('/create', productCreateController);
 router.put('/update/:productId', productUpdateController);
 router.get('/get/:productId?', productGetController);
-// router.get('/getCSV', productCSVcontroller);
+router.get('/getCSV', productCSVcontroller);
 router.delete('/delete/:productId?', productDeleteController);
 
 
