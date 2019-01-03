@@ -36,7 +36,7 @@ app.use(cors(corsOptions));
 
 //creating a route handler
 app.use('/product', productRoute);
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res) {
 	if (err)
 		res.status(500).json(
 			{
@@ -46,7 +46,6 @@ app.use(function (err, req, res, next) {
 		);
 	/** To avoid next and req is never used */
 	//console.log(req.body);
-	next();
 });
 
 //firing the app
