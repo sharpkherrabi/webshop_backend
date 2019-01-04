@@ -1,6 +1,6 @@
 const productModel = require('../models/product.model');
 
-module.exports = async function getCSV (req, res, next){
+module.exports = async function getCSV(req, res, next) {
 	/*if (error){
         return next( new Eror ('SOME ERROR'));
     }*/
@@ -8,12 +8,16 @@ module.exports = async function getCSV (req, res, next){
 		'Content-Type': 'text/csv',
 		'Content-Disposition': 'attachment; filename=products.csv'
 	});
+	
 	// pipe file using mongoose-csv
-	await productModel.find(
-		function(err){ 
-			if( err ) 
-				return next (new Error ('COULD\'T GET PRODUCTS AS CSV'));            
-		})
-	// .exec(function(err, products){ if( err ) return next (new Error ('COULD\'T GET PRODUCTS AS CSV'))})
-		.csv(res);
+	await productModel.find()
+		.csv(res)
+		.exec(function (err) {
+			if (err) {
+				let error = new Error();
+				error.message = 'COULD\'T GET PRODUCTS AS CSV';
+				error.statusCode = 404;
+				return next(error);
+			}
+		});
 };

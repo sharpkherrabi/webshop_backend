@@ -9,7 +9,12 @@ module.exports = function (req, res, next) {
 
 
 	productModel.find(condition, function (err, products) {
-		if (err) return next(new Error('INTERNAL ERROR OCCURRED'));
+		if (err) {
+			let error = new Error();
+			error.message = 'INTERNAL ERROR OCCURRED';
+			error.statusCode = 500;
+			return next(error);
+		}
 		res.status(200).json({
 			status: 'OK',
 			products
