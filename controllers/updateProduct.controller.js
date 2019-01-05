@@ -12,7 +12,12 @@ module.exports = async function (req, res, next) {
 		runValidators: true
 	}
 	).exec(function (error, product) {
-		if (error) return next(new Error('COULDN\'T UPDATE '));
+		if (error){
+			let error = new Error();
+			error.message = 'COULDN\'T UPDATE ';
+			error.statusCode = 500;
+			return next(error);
+		}
 
 		res.status(200).send({
 			status: 'UPDATED',

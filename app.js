@@ -25,7 +25,7 @@ mongoose.connect(devDbUrl, { useNewUrlParser: true })
 	.then(() => console.log(' MongoDB Verbunden to ' + devDbUrl));
 
 // Because of DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
-mongoose.set('useCreateIndex', true); 
+mongoose.set('useCreateIndex', true);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -36,14 +36,15 @@ app.use(cors(corsOptions));
 
 //creating a route handler
 app.use('/product', productRoute);
-app.use(function (err, req, res) {
+app.use(function (err, req, res, next) {
 	if (err)
-		res.status(500).json(
+		res.status(err.statusCode || '500').json(
 			{
-				message: err.toString(),
+				message: err.message,
 				err
 			}
 		);
+	next();
 	/** To avoid next and req is never used */
 	//console.log(req.body);
 });
