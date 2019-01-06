@@ -1,0 +1,57 @@
+stages:
+  - test
+  - build
+  - release
+  #- deploy
+
+variables:
+  CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+  
+
+test-server:
+  stage: test
+  image: node:9-alpine
+  services:
+    - mongo
+  script:
+    - npm i npm@latest -g
+    - npm i
+    - npm run test-ci
+  coverage:
+    '/Statements.*?(\d+(?:\.\d+)?)%/'
+
+build-server:
+  stage: build
+  image: docker:git
+  services:
+    - docker:dind
+  script:
+    - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
+    - docker pull hello-world
+    - docker build --pull -t $CONTAINER_TEST_IMAGE .
+    - docker push $CONTAINER_TEST_IMAGE
+
+
+release-server:
+  stage: release
+  image: docker:git
+  services:
+    - docker:dind
+  script:
+    - echo $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
+    - docker pull $CONTAINER_TEST_IMAGE
+    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+    - docker push $CONTAINER_RELEASE_IMAGE
+  only:
+    - master
+
+#deploy:
+ # stage: deploy
+  #script:
+   # - ./deploy.sh
+  #only:
+   # - master
+
+  
+  

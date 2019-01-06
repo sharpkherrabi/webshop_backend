@@ -27,7 +27,7 @@ describe('Product tests', () => {
 					if(err){done(err);}
 					expect(res).to.have.status(200);                    
 					res.should.have.header('Content-Type');
-                    res.should.have.header('Content-Disposition');
+					res.should.have.header('Content-Disposition');
 					done();
 				});
 		});
