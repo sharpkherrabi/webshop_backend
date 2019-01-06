@@ -1,9 +1,6 @@
 const productModel = require('../models/product.model');
 
 module.exports = async function getCSV(req, res, next) {
-	/*if (error){
-        return next( new Eror ('SOME ERROR'));
-    }*/
 	res.status(200).writeHead(200, {
 		'Content-Type': 'text/csv',
 		'Content-Disposition': 'attachment; filename=products.csv'
