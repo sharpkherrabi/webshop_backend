@@ -10,7 +10,7 @@ module.exports = async function (req, res, next) {
 		return next(error);
 	}
 
-	switch (_.chain(req.query).keys().toString().value()) { // get the query string
+	switch (_.chain(req.query).keys().toString().value()) { // get the query key
 		case 'q': {
 			//if the key is q, extract the text and add condition to the object
 			condition = {
@@ -68,7 +68,7 @@ module.exports = async function (req, res, next) {
 			}
 
 			res.status(200).json({
-				status: 200,
+				status: 'OK',
 				products
 			});
 		});
