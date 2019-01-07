@@ -11,7 +11,8 @@ const orderSchema = new Schema({
             type: Number,
             min: 1,
             required: true
-        },        
+        },
+        _id: false   //to not create _id field for each product     
     }],
     paymentMethod: {
         type: String
@@ -30,6 +31,9 @@ const orderSchema = new Schema({
         houseNr: {type: String, required: true},
         zip : {type: Number, required: true},
         city: {type: String, required: true}
+    },
+    prise: {
+        type: Number
     }
 });
 

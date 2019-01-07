@@ -1,4 +1,4 @@
-const productModel = require('../models/product.model');
+const productModel = require('../../models/product.model');
 
 module.exports = async function getCSV(req, res, next) {
 	/*if (error){

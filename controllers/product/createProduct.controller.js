@@ -1,7 +1,7 @@
 /** Comment bellow allows us to use console.log  when testing with eslint: */
 /* eslint-disable no-console */
 
-let productModel = require('../models/product.model');
+let productModel = require('../../models/product.model');
 let _ = require('lodash');
 
 module.exports = async function (req, res, next) {

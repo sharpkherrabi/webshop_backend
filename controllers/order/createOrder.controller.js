@@ -1,9 +1,9 @@
 /** File imports */
-const orderModel = require('../models/order.model');
+const orderModel = require('../../models/order.model');
 
-module.exports = async function (req, res, next) {
+module.exports = function (req, res, next) {
     const newOrder = new orderModel(req.body);
-    await newOrder.save(function(err, order) {
+    newOrder.save(function(err, order) {
         if (err) {
             let error = new Error();
             error.message = 'INTERNAL ERROR OCCURED!';
@@ -12,7 +12,7 @@ module.exports = async function (req, res, next) {
         }
         res.status(201).json(
         {
-                status,
+                status: 'CREATED',
                 order
         });
     });
