@@ -9,6 +9,8 @@ const app = express();
 const config = require('./config/config');
 
 const productRoute = require('./routes/product.route');
+const orderRoute = require('./routes/order.route');
+
 const devDbUrl = `${config.dbUrl}:${config.mongoPort}/${config.db}`;
 let corsOptions = {
 	origin: function (origin, callback) {
@@ -36,6 +38,8 @@ app.use(cors(corsOptions));
 
 //creating a route handler
 app.use('/product', productRoute);
+app.use('/order', orderRoute);
+
 app.use(function (err, req, res, next) {
 	if (err)
 		res.status(err.statusCode || '500').json(

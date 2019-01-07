@@ -7,7 +7,6 @@
     "start": "NODE_ENV=dev node app.js",
     "test": "eslint --fix ./ && NODE_ENV=test mocha ./test/ --recursive --timeout 5000 --exit",
     "doc": "NODE_ENV=docker mocha --timeout 5000 --exit"
-
   },
   "repository": {
     "type": "git",
