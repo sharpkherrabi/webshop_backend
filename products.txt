@@ -1,0 +1,110 @@
+{
+	"name":"Huawei MarteBook  X Pro"
+,	"description":"Huawei MateBook X Pro (35,31 cm, 13,9 Zoll, Intel Core i7-8550U, 8 GB RAM, 512 GB SSD, NVIDIA GeForce MX150 mit 2 GB GDDR5, Windows 10 Home, 3K Touchscreen Display) grau",
+	"quantity": 20,
+	"unitPrice": 159900,
+	"image": "https://images-na.ssl-images-amazon.com/images/I/8149py2u1cL._SL1500_.jpg"
+}
+{
+	"name":"Lichterkette 3D Sterne",
+	"description":"3D LED 9er Sternenkette für innen & außen Stern Adventsstern Außenstern Weihnachtsstern Neuheit 2017 (gelb)",
+	"quantity": 20,
+	"unitPrice": 8179,
+	"image": "https://images-na.ssl-images-amazon.com/images/I/81CB1CPtWOL._SL1500_.jpg"
+}
+{
+	"name":"Lichterkette",
+	"description":"LED Büschel-Lichterkette Cluster IP44 für Innen und Außen, 10m Zuleitung MULTICOLOR, 8 Effekte, (Warmweiß, 8 Meter) [Energieklasse A+]",
+	"quantity": 20,
+	"unitPrice": 5550,
+	"image": "https://images-na.ssl-images-amazon.com/images/I/61qWdpaGt0L.jpg"
+}
+
+{
+	"name":"USB-Speicherstick",
+	"description":"USB-Speicherstick mit Pendrive, Tier-Cartoon-Motiv, 16 GB, Schwarz, von Aneew 16GB pinguin",
+	"quantity": 20,
+	"unitPrice": 997,
+	"image": "https://images-na.ssl-images-amazon.com/images/I/51%2BOsvWUidL._SL1000_.jpg"
+}
+
+{
+	"name":"Huawei P20",
+	"description":"HUAWEI P20 Smartphone (14,7 cm (5,8 Zoll), 128GB interner Speicher, 4GB RAM, 20 MP Plus 12 MP Leica Dual Kamera, Android 8.1, EMUI 8.1) Schwarz",
+	"quantity": 20,
+	"unitPrice": 41500,
+	"image": "https://images-na.ssl-images-amazon.com/images/I/418L9hz1f6L.jpg"
+}
+
+{
+	"name":"Huawei Mediapad M5",
+	"description":"Huawei MediaPad M5 WiFi Tablet-PC 27,43 cm (10,8 Zoll), 2K-Display, Octa-Core Prozessor, 4 GB RAM, 32 GB interner Speicher, Android 8.0, EMUI 8.0, grau",
+	"quantity": 20,
+	"unitPrice": 31900,
+	"image": "https://images-na.ssl-images-amazon.com/images/I/51GNsAzQoRL._SL1000_.jpg"
+}
+
+{
+	"name":"Microsoft Surface",
+	"description":"Microsoft Surface Laptop 34,29 cm (13,5 Zoll) Laptop (Intel Core i7, 256GB Festplatte, 8GB RAM, Intel Iris Plus Graphics 640, Win 10 S) Platin Grau",
+	"quantity": 20,
+	"unitPrice": 134900,
+	"image": "https://images-na.ssl-images-amazon.com/images/I/710pTKCTtVL._SL1500_.jpg"
+}
+
+{
+	"name":"Night King",
+	"description":"Pop Game of Thrones Night King on Ice Dragon",
+	"quantity": 20,
+	"unitPrice": "2290",
+	"image": "https://images-na.ssl-images-amazon.com/images/I/71XmMUQe9SL._SL1478_.jpg"
+}
+
+{
+	"name":"Ghost Funko",
+	"description":"FunKo 3876 Actionfigur Game of Thrones: Ghost",
+	"quantity": 20,
+	"unitPrice": "840",
+	"image": "https://images-na.ssl-images-amazon.com/images/I/615MRTPnkCL._SL1050_.jpg"
+}
+
+{
+	"name":"Laptop Aufkleber",
+	"description":"Sanmatic 50Pcs Laptop Aufkleber für Entwickler Programmiersprache gehören Aufkleber IT-Logo, C ++, Python, Linux, Swift, für Geeks, Ingenieure, Hacker, Geeks, Coder",
+	"quantity": 10,
+	"unitPrice": "899",
+	"image": "https://images-na.ssl-images-amazon.com/images/I/71sPKFg4V%2BL._SL1000_.jpg"
+}
+
+{
+	"name":"JavaScript",
+	"description":"JavaScript: Das umfassende Handbuch Gebundenes Buch – 28. Juli 2016",
+	"quantity": 10,
+	"unitPrice": "4990",
+	"image": "https://images-na.ssl-images-amazon.com/images/I/51sADOhbVRL.jpg"
+}
+
+{
+	"name":"Frühstücksbrett",
+	"description":"Frühstücksbrett Zuggorschnägge Unbekannter Einband – 1. ",
+	"quantity": 0,
+	"unitPrice": "1299",
+	"image": "https://images-na.ssl-images-amazon.com/images/I/41lIWqWt3oL.jpg"
+}
+
+{
+	"name":"Märchen Taschenbuch",
+	"description":"Gans Glücklich Taschenbuch – Großdruck, 25. Februar 2016",
+	"quantity": 0,
+	"unitPrice": "1500",
+	"image": "https://images-na.ssl-images-amazon.com/images/I/51w66h8I2wL.jpg"
+}
+
+{
+	"name":"Kunstblume",
+	"description":"SMYCKA Kunstblume, Nelke, rosa",
+	"quantity": 20,
+	"unitPrice": "49",
+	"image": "https://www.ikea.com/PIAimages/0611395_PE685419_S5.JPG"
+}
+
