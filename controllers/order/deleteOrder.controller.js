@@ -11,7 +11,7 @@ module.exports = async function (req, res, next) {
 			.exec(function (err, order) {
 				if (err){
 					let error = new Error();
-					error.message = 'COULDN\'T FIND ANY PRODUCT WITH THIS ID';
+					error.message = 'COULDN\'T FIND ANY ORDER WITH THIS ID';
 					error.statusCode = 404;
 					return next(error);
 				}
@@ -24,7 +24,7 @@ module.exports = async function (req, res, next) {
 
 	} else {
 		let error = new Error();
-		error.message = 'PRODUCT NOT FOUND';
+		error.message = 'ORDER NOT FOUND';
 		error.statusCode = 404;
 		return next(error);
 	}

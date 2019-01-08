@@ -15,8 +15,9 @@ const orderSchema = new Schema({
         _id: false   //to not create _id field for each product     
     }],
     paymentMethod: {
-        type: String
-        //default: 'paypal'
+        type: String,
+        enum: ['Paypal', 'Credit card', 'Voucher'],
+        default: 'Paypal'
     },
     date: {
         type: Date,
@@ -32,10 +33,17 @@ const orderSchema = new Schema({
         zip : {type: Number, required: true},
         city: {type: String, required: true}
     },
-    prise: {
-        type: Number
+    price: {
+        type: Number,
+        required: true
     }
 });
+
+orderSchema.methods.setPrice = function (price) {
+    console.log('orderModel ' + price);
+	this.set('price', 1000);
+};
+
 
 module.exports = mongoose.model('Order', orderSchema);
 

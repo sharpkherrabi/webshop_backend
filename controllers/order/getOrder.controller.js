@@ -2,8 +2,8 @@ let orderModel = require('../../models/order.model');
 const _ = require('lodash');
 module.exports = function (req, res, next) {
 	let condition = {};
-	// if the request contains the id of the product, the backend will deliver just one product...
-	// to get just one product, the request has to be send to /product/get/(productId)
+	// if the request contains the id of the order, function returns one order.
+	// request to get one order:  /order/get/(productId)
 	if (!_.isUndefined(req.params.orderId))
 		condition._id = req.params.orderId;
 
