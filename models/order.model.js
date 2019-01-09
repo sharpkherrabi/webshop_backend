@@ -1,6 +1,18 @@
 const mongoose = require('mongoose');
 const Schema  = mongoose.Schema;
+const validator = require('validator');
+const validate =  require('mongoose-validator');
 
+let zipValidator = [
+	validate({
+		validator: 'isNumeric',
+		passIfEmpty: false
+	}),
+	validate({
+		validator: 'isLength',
+		arguments: [5, 5]
+	})
+]
 const orderSchema = new Schema({
 	product: [{
 		id: {
@@ -27,11 +39,17 @@ const orderSchema = new Schema({
 		firstName: {type: String, required: true},
 		lastName: {type: String, required: true}        
 	},
+	email:{
+		type: String,
+		required: true,
+		validate: validator.isEmail
+	},
 	adress: {
 		street : {type: String, required: true},    
 		houseNr: {type: String, required: true},
-		zip : {type: Number, required: true},
-		city: {type: String, required: true}
+		zip : {type: String, required: true, validate: zipValidator},
+		city: {type: String, required: true},
+		country: {type: String, required: true}
 	},
 	price: {
 		type: Number,
