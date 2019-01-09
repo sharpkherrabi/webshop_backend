@@ -12,7 +12,7 @@ let zipValidator = [
 		validator: 'isLength',
 		arguments: [5, 5]
 	})
-]
+];
 const orderSchema = new Schema({
 	product: [{
 		id: {
