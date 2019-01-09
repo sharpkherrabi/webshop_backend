@@ -1,4 +1,4 @@
-let productModel = require('../models/product.model');
+let productModel = require('../../models/product.model');
 const _ = require('lodash');
 module.exports = async function (req, res, next) {
 	let condition = {};
