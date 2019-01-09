@@ -22,6 +22,17 @@ const test = {
 	]
 };
 
+const testCI = {
+
+	db: 'product_shop_test',
+	mongoPort: 27017,
+	dbUrl: 'mongodb://mongo',
+	serverPort: 3001,
+	originsWhitelist: [
+		'http://localhost:4200',      //CORS white list
+	]
+};
+
 const docker = {
 	db: 'product_shop_doc',
 	mongoPort: 27017,
@@ -39,7 +50,8 @@ const config = {
 	dev,
 	prod,
 	test,
-	docker
+	docker, 
+	testCI
 };
 
 module.exports = config[env];

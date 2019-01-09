@@ -22,7 +22,7 @@ let corsOptions = {
 
 //connection to mongo db
 mongoose.connect(devDbUrl, { useNewUrlParser: true })
-	.then(() => console.log(' MongoDB Verbunden to ' + devDbUrl));
+	.then(() => console.log(' MongoDB connected to ' + devDbUrl));
 
 // Because of DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
 mongoose.set('useCreateIndex', true);
