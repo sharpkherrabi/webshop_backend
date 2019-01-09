@@ -12,11 +12,14 @@ module.exports = async function (req, res, next) {
 
 	switch (_.chain(req.query).keys().toString().value()) { // get the query key
 		case 'q': {
+			//
 			//if the key is q, extract the text and add condition to the object
 			condition = {
+				//https://docs.mongodb.com/manual/reference/operator/query/or/
 				$or: [
 					{
 						name: {
+							//https://docs.mongodb.com/manual/reference/operator/query/regex/
 							$regex: `${req.query.q}`, // the text, that we are looking for, as regex expression
 							$options: 'i' // i means in this context case-insensitive
 						}
