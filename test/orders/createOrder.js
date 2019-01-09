@@ -33,14 +33,14 @@ describe('Order tests', () => {
 			chai.request(app)
 				.post('/product/create')
 				.send(product)
-				.end((err, res1) => {
-					should.exist(res1.body);
-					res1.body.should.have.property('product');
+				.end((err, res) => {
+					should.exist(res.body);
+					res.body.should.have.property('product');
 					const newOrder = {
 						product: [
 							{
-								'id': res1.body.product._id,
-								'amount': 2
+								id: res.body.product._id,
+								amount: 2
 							}
 						],
 						orderer: {
