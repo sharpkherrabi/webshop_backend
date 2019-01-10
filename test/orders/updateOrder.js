@@ -26,13 +26,6 @@ describe('Order tests', () => {
 		quantity: '20',
 		image: 'https://images-na.ssl-images-amazon.com/images/I/81CB1CPtWOL._SL1500_.jpg'
 	};
-    
-	/*const newAdress = {
-		houseNr: '12b',
-		zip: '1b2245',
-		city: 'Frankfurt',
-		country: 'Deutchland'
-	};*/
 
 	describe('/Update order', () => {
 		it('should not update adress, because "street" is not provided', (done) => {
@@ -69,22 +62,24 @@ describe('Order tests', () => {
 							result.should.have.status(201);
 							chai.request(app)
 								.put(`/order/update/${result.body.order._id}`)
-								.send({'adress': {
-									'houseNr': '12b',
-									'zip': '12245',
-									'city': 'Frankfurt',
-									'country': 'Deutchland'
-								}})
-								.end((err, updateRes)=>{
+								.send({
+									'adress': {
+										'houseNr': '12b',
+										'zip': '12245',
+										'city': 'Frankfurt',
+										'country': 'Deutchland'
+									}
+								})
+								.end((err, updateRes) => {
 									should.exist(updateRes.body);
 									updateRes.should.have.status(500);
 									done();
 								});
-							
+
 						});
 				});
 		});
-        
+
 		it('should not update adress, because "zip" validation fails', (done) => {
 			chai.request(app)
 				.post('/product/create')
@@ -119,23 +114,25 @@ describe('Order tests', () => {
 							result.should.have.status(201);
 							chai.request(app)
 								.put(`/order/update/${result.body.order._id}`)
-								.send({'adress': {
-									'street':'Palmengarten',
-									'houseNr': '12b',
-									'zip': '122b45',
-									'city': 'Frankfurt',
-									'country': 'Deutchland'
-								}})
-								.end((err, updateRes)=>{
+								.send({
+									'adress': {
+										'street': 'Palmengarten',
+										'houseNr': '12b',
+										'zip': '122b45',
+										'city': 'Frankfurt',
+										'country': 'Deutchland'
+									}
+								})
+								.end((err, updateRes) => {
 									should.exist(updateRes.body);
 									updateRes.should.have.status(500);
 									done();
 								});
-							
+
 						});
 				});
 		});
-        
+
 		it('should not update orderer, if first or lastname were not provided', (done) => {
 			chai.request(app)
 				.post('/product/create')
@@ -170,19 +167,21 @@ describe('Order tests', () => {
 							result.should.have.status(201);
 							chai.request(app)
 								.put(`/order/update/${result.body.order._id}`)
-								.send({'orderer': {
-									'firstName': 'Krista'
-								}})
-								.end((err, updateRes)=>{
+								.send({
+									'orderer': {
+										'firstName': 'Krista'
+									}
+								})
+								.end((err, updateRes) => {
 									should.exist(updateRes.body);
 									updateRes.should.have.status(500);
 									done();
 								});
-							
+
 						});
 				});
 		});
-        
+
 		it('should update adress, if all required fields were provided', (done) => {
 			chai.request(app)
 				.post('/product/create')
@@ -217,14 +216,16 @@ describe('Order tests', () => {
 							result.should.have.status(201);
 							chai.request(app)
 								.put(`/order/update/${result.body.order._id}`)
-								.send({'adress': {
-									'street':'Palmengarten',
-									'houseNr': '12b',
-									'zip': '12245',
-									'city': 'Frankfurt',
-									'country': 'Deutchland'
-								}})
-								.end((err, updateRes)=>{
+								.send({
+									'adress': {
+										'street': 'Palmengarten',
+										'houseNr': '12b',
+										'zip': '12245',
+										'city': 'Frankfurt',
+										'country': 'Deutchland'
+									}
+								})
+								.end((err, updateRes) => {
 									should.exist(updateRes.body);
 									updateRes.should.have.status(200);
 									updateRes.should.be.json;
@@ -236,7 +237,7 @@ describe('Order tests', () => {
 									updateRes.body.order.adress.street.should.equal('Palmengarten');
 									done();
 								});
-							
+
 						});
 				});
 		});
