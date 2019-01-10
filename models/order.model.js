@@ -1,9 +1,8 @@
+/* Package imports */
 const mongoose = require('mongoose');
 const Schema  = mongoose.Schema;
 const validator = require('validator');
 const validate =  require('mongoose-validator');
-
-
 
 let zipValidator = [
 	validate({
@@ -16,6 +15,9 @@ let zipValidator = [
 	})
 ];
 
+/** Schemas for adress, orderer and product to make validators run on update
+ * https://mongoosejs.com/docs/validation.html
+ */
 const adressSchema =  new Schema({
 	street : {type: String, required: true},    
 	houseNr: {type: String, required: true},
