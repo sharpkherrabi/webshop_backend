@@ -7,7 +7,9 @@ const dev = {
 	serverPort: 3000,
 	originsWhitelist: [
 		'http://localhost:4200',      //CORS white list
-	]
+	],
+	paypal_client_id:'AcM070V8xIvHGN-Y2BjU9DmVLSDFd9fiNo9s_766boS1dqanynm-TU3er6E4nGJf2lnQcg3jeeCUgQ_y',
+	paypal_client_secret: 'ELp9HQxDsiWxHtvk_ZHEQq6WiEEWA_0YOS7_CFNZyungRTLHgiLpUApuSe6lhlxRZfpCkmeNM0bLbbw0'
 };
 
 // test configuration object

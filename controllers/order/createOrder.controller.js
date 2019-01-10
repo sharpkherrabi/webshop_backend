@@ -21,7 +21,7 @@ module.exports = async function (req, res, next) {
 						return next(error);
 					}
 				}).exec();
-				newOrder.price = newOrder.price + found.unitPrice * newOrder.product[i].amount;
+				newOrder.price = newOrder.price + found.unitPrice * newOrder.product[i].quantity;
 			}
 		}
 	}

@@ -24,6 +24,7 @@
     "mongoose": "^5.4.0",
     "mongoose-csv": "^1.1.0",
     "mongoose-validator": "^2.1.0",
+    "paypal-rest-sdk": "^1.8.1",
     "validator": "^10.9.0"
   },
   "devDependencies": {
