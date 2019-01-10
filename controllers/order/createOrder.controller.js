@@ -21,7 +21,28 @@ module.exports = async function (req, res, next) {
 						return next(error);
 					}
 				}).exec();
+				/** Calculate price */
 				newOrder.price = newOrder.price + found.unitPrice * newOrder.product[i].amount;
+
+				/** Update product quantity number 
+				 * A.findByIdAndUpdate(id, update, options, callback) // executes
+				*/
+				let available = found.quantity;
+				if(available - newOrder.product[i].amount < 0){
+					let error = new Error();
+					error.message = 'NOT ENOUGH PRODUCTS IN WAREHOUSE ';
+					error.statusCode = 500;
+					return next(error);
+				}
+				await productModel.findByIdAndUpdate({_id: condition._id}, {$set: {quantity: available-newOrder.product[i].amount}}, {runValidators: true}).exec((error)=>{
+						if (error){
+							let error = new Error();
+							error.message = 'COULDN\'T UPDATE WHILE ORDERING';
+							error.statusCode = 500;
+							return next(error);
+						}
+				});
+
 			}
 		}
 	}
