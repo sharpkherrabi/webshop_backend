@@ -44,8 +44,8 @@ describe('Order tests', () => {
 							}
 						],
 						orderer: {
-							firstName: 'Krista',
-							lastName: 'Faul'
+							firstname: 'Krista',
+							lastname: 'Faul'
 						},
 						adress: {
 							street: 'Rheinallee',

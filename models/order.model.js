@@ -3,6 +3,8 @@ const Schema  = mongoose.Schema;
 const validator = require('validator');
 const validate =  require('mongoose-validator');
 
+
+
 let zipValidator = [
 	validate({
 		validator: 'isNumeric',
@@ -13,18 +15,32 @@ let zipValidator = [
 		arguments: [5, 5]
 	})
 ];
+
+const adressSchema =  new Schema({
+	street : {type: String, required: true},    
+	houseNr: {type: String, required: true},
+	zip : {type: String, required: true, validate: zipValidator},
+	city: {type: String, required: true},
+	country: {type: String, required: true},
+	_id: false //to not create _id field for each adress
+});
+
+const ordererSchema = new Schema({
+	firstname: {type: String, required: true},
+	lastname: {type: String, required: true},
+	_id: false 
+});
+
+const productSchema =  new Schema({
+	id: {type: String, required: true},
+	amount : {type: Number, min: 1, required: true},
+	_id: false //to not create _id field for each product
+});
+
 const orderSchema = new Schema({
 	product: [{
-		id: {
-			type: String,
-			required: true
-		},
-		amount : {
-			type: Number,
-			min: 1,
-			required: true
-		},
-		_id: false   //to not create _id field for each product     
+		type: productSchema,
+		required: true,     
 	}],
 	paymentMethod: {
 		type: String,
@@ -36,8 +52,8 @@ const orderSchema = new Schema({
 		default: Date.now()
 	},
 	orderer: {
-		firstName: {type: String, required: true},
-		lastName: {type: String, required: true}        
+		type: ordererSchema,
+		required: true   
 	},
 	email:{
 		type: String,
@@ -45,11 +61,8 @@ const orderSchema = new Schema({
 		validate: validator.isEmail
 	},
 	adress: {
-		street : {type: String, required: true},    
-		houseNr: {type: String, required: true},
-		zip : {type: String, required: true, validate: zipValidator},
-		city: {type: String, required: true},
-		country: {type: String, required: true}
+		type: adressSchema,
+		required: true	
 	},
 	price: {
 		type: Number,
