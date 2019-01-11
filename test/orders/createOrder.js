@@ -40,7 +40,7 @@ describe('Order tests', () => {
 						product: [
 							{
 								id: res.body.product._id,
-								amount: 2
+								quantity: 2
 							}
 						],
 						orderer: {
@@ -69,7 +69,7 @@ describe('Order tests', () => {
 							result.body.order.should.have.property('adress');
 							result.body.order.should.have.property('price');
 							result.body.order.should.be.a('object');
-							result.body.order.price.should.equal(product.unitPrice * newOrder.product[0].amount);
+							result.body.order.price.should.equal(product.unitPrice * newOrder.product[0].quantity);
 							done();
 						});
 				});
