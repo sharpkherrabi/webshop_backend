@@ -43,6 +43,7 @@ const orderSchema = new Schema({
 	product: [{
 		type: productSchema,
 		required: true,     
+
 	}],
 	paymentMethod: {
 		type: String,
