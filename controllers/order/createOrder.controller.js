@@ -21,6 +21,7 @@ module.exports = async function (req, res, next) {
 						return next(error);
 					}
 				}).exec();
+
 				/** Calculate price */
 				newOrder.price = newOrder.price + found.unitPrice * newOrder.product[i].quantity;
 
@@ -42,7 +43,6 @@ module.exports = async function (req, res, next) {
 						return next(error);
 					}
 				});
-
 			}
 		}
 	}
