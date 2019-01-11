@@ -18,7 +18,7 @@ let zipValidator = [
 /** Schemas for adress, orderer and product to make validators run on update
  * https://mongoosejs.com/docs/validation.html
  */
-const adressSchema =  new Schema({
+const addressSchema =  new Schema({
 	street : {type: String, required: true},    
 	houseNr: {type: String, required: true},
 	zip : {type: String, required: true, validate: zipValidator},
@@ -62,8 +62,8 @@ const orderSchema = new Schema({
 		required: true,
 		validate: validator.isEmail
 	},
-	adress: {
-		type: adressSchema,
+	address: {
+		type: addressSchema,
 		required: true	
 	},
 	price: {

@@ -28,7 +28,7 @@ describe('Order tests', () => {
 	};
 
 	describe('/Update order', () => {
-		it('should not update adress, because "street" is not provided', (done) => {
+		it('should not update address, because "street" is not provided', (done) => {
 			chai.request(app)
 				.post('/product/create')
 				.send(product)
@@ -46,7 +46,7 @@ describe('Order tests', () => {
 							firstname: 'Krista',
 							lastname: 'Faul'
 						},
-						adress: {
+						address: {
 							street: 'Rheinallee',
 							houseNr: '12b',
 							zip: '12345',
@@ -63,7 +63,7 @@ describe('Order tests', () => {
 							chai.request(app)
 								.put(`/order/update/${result.body.order._id}`)
 								.send({
-									'adress': {
+									'address': {
 										'houseNr': '12b',
 										'zip': '12245',
 										'city': 'Frankfurt',
@@ -80,7 +80,7 @@ describe('Order tests', () => {
 				});
 		});
 
-		it('should not update adress, because "zip" validation fails', (done) => {
+		it('should not update address, because "zip" validation fails', (done) => {
 			chai.request(app)
 				.post('/product/create')
 				.send(product)
@@ -98,7 +98,7 @@ describe('Order tests', () => {
 							firstname: 'Krista',
 							lastname: 'Faul'
 						},
-						adress: {
+						address: {
 							street: 'Rheinallee',
 							houseNr: '12b',
 							zip: '12345',
@@ -115,7 +115,7 @@ describe('Order tests', () => {
 							chai.request(app)
 								.put(`/order/update/${result.body.order._id}`)
 								.send({
-									'adress': {
+									'address': {
 										'street': 'Palmengarten',
 										'houseNr': '12b',
 										'zip': '122b45',
@@ -151,7 +151,7 @@ describe('Order tests', () => {
 							firstname: 'Krista',
 							lastname: 'Hund'
 						},
-						adress: {
+						address: {
 							street: 'Rheinallee',
 							houseNr: '12b',
 							zip: '12345',
@@ -182,7 +182,7 @@ describe('Order tests', () => {
 				});
 		});
 
-		it('should update adress, if all required fields were provided', (done) => {
+		it('should update address, if all required fields were provided', (done) => {
 			chai.request(app)
 				.post('/product/create')
 				.send(product)
@@ -200,7 +200,7 @@ describe('Order tests', () => {
 							firstname: 'Krista',
 							lastname: 'Hund'
 						},
-						adress: {
+						address: {
 							street: 'Rheinallee',
 							houseNr: '12b',
 							zip: '12345',
@@ -217,7 +217,7 @@ describe('Order tests', () => {
 							chai.request(app)
 								.put(`/order/update/${result.body.order._id}`)
 								.send({
-									'adress': {
+									'address': {
 										'street': 'Palmengarten',
 										'houseNr': '12b',
 										'zip': '12245',
@@ -232,9 +232,9 @@ describe('Order tests', () => {
 									updateRes.body.should.be.a('object');
 									updateRes.body.should.have.property('order');
 									updateRes.body.order.should.be.a('object');
-									updateRes.body.order.should.have.property('adress');
-									updateRes.body.order.adress.should.have.property('street');
-									updateRes.body.order.adress.street.should.equal('Palmengarten');
+									updateRes.body.order.should.have.property('address');
+									updateRes.body.order.address.should.have.property('street');
+									updateRes.body.order.address.street.should.equal('Palmengarten');
 									done();
 								});
 

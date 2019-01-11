@@ -47,7 +47,7 @@ describe('Order tests', () => {
 							firstname: 'Krista',
 							lastname: 'Faul'
 						},
-						adress: {
+						address: {
 							street: 'Rheinallee',
 							houseNr: '12b',
 							zip: '12345',
@@ -66,7 +66,7 @@ describe('Order tests', () => {
 							result.body.should.be.a('object');
 							result.body.order.should.have.property('orderer');
 							result.body.order.should.have.property('product');
-							result.body.order.should.have.property('adress');
+							result.body.order.should.have.property('address');
 							result.body.order.should.have.property('price');
 							result.body.order.should.be.a('object');
 							result.body.order.price.should.equal(product.unitPrice * newOrder.product[0].quantity);
