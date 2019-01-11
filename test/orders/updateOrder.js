@@ -39,7 +39,7 @@ describe('Order tests', () => {
 						product: [
 							{
 								id: res.body.product._id,
-								amount: 2
+								quantity: 2
 							}
 						],
 						orderer: {
@@ -91,7 +91,7 @@ describe('Order tests', () => {
 						product: [
 							{
 								id: res.body.product._id,
-								amount: 2
+								quantity: 2
 							}
 						],
 						orderer: {
@@ -144,7 +144,7 @@ describe('Order tests', () => {
 						product: [
 							{
 								id: res.body.product._id,
-								amount: 2
+								quantity: 2
 							}
 						],
 						orderer: {
@@ -169,7 +169,7 @@ describe('Order tests', () => {
 								.put(`/order/update/${result.body.order._id}`)
 								.send({
 									'orderer': {
-										'firstName': 'Krista'
+										'firstname': 'Krista'
 									}
 								})
 								.end((err, updateRes) => {
@@ -193,7 +193,7 @@ describe('Order tests', () => {
 						product: [
 							{
 								id: res.body.product._id,
-								amount: 2
+								quantity: 2
 							}
 						],
 						orderer: {

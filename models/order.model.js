@@ -35,7 +35,7 @@ const ordererSchema = new Schema({
 
 const productSchema =  new Schema({
 	id: {type: String, required: true},
-	amount : {type: Number, min: 1, required: true},
+	quantity : {type: Number, min: 1, required: true},
 	_id: false //to not create _id field for each product
 });
 
