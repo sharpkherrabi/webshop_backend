@@ -15,6 +15,7 @@ module.exports = async (req, res, next) => {
 		return next(error);
 	}
 	await new Promise(async (resolve, reject) => {
+		// get the order by id
 		await orderModel.findById(orderId)
 			.exec(async (err, order) => {
 				if (err) {
@@ -27,6 +28,7 @@ module.exports = async (req, res, next) => {
 				let item = {};
 				allRoundPrice = order.price;
 				_.each(order.product, async function (product) {
+					// get each product in this order
 					item = await orderModel.findInProductModel(product.id);
 					if (_.includes(item.status, 'ERROR')) {
 						let error = new Error();
@@ -35,6 +37,7 @@ module.exports = async (req, res, next) => {
 						reject({ status: error.message });
 						return next(error);
 					} else {
+						// get array containing all the products
 						items.push({
 							name: item.product.name,
 							sku: 'item',
@@ -68,7 +71,7 @@ module.exports = async (req, res, next) => {
 				total: allRoundPrice.toString(),
 				currency: currency
 			},
-			description: 'Webshop payment...'
+			description: `order containing ${items.length} items: ${_.chain(items).map('name').join(', ').value()}`
 		}]
 	});
 
