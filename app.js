@@ -4,14 +4,27 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
+const paypal = require('paypal-rest-sdk');
 
 /** File imports */
 const config = require('./config/config');
 
+/** configure paypal environment with some credentials*/
+paypal.configure({
+	mode: 'sandbox',
+	client_id: config.paypal_client_id,
+	client_secret: config.paypal_client_secret
+});
+
+//route handlers' functions
 const productRoute = require('./routes/product.route');
 const orderRoute = require('./routes/order.route');
+const checkoutRoute = require('./routes/checkout.route');
 
+// credentials for DB connection
 const devDbUrl = `${config.dbUrl}:${config.mongoPort}/${config.db}`;
+
+//CORS options
 let corsOptions = {
 	origin: function (origin, callback) {
 		let isWhitelisted = config.originsWhitelist.indexOf(origin) !== -1;
@@ -39,7 +52,7 @@ app.use(cors(corsOptions));
 //creating a route handler
 app.use('/product', productRoute);
 app.use('/order', orderRoute);
-
+app.use('/checkout', checkoutRoute);
 app.use(function (err, req, res, next) {
 	if (err)
 		res.status(err.statusCode || '500').json(

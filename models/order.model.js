@@ -1,8 +1,10 @@
 /* Package imports */
 const mongoose = require('mongoose');
-const Schema  = mongoose.Schema;
+const Schema = mongoose.Schema;
 const validator = require('validator');
-const validate =  require('mongoose-validator');
+const validate = require('mongoose-validator');
+let productModel = require('./product.model');
+let _ = require('lodash');
 
 let zipValidator = [
 	validate({
@@ -58,7 +60,7 @@ const orderSchema = new Schema({
 		type: ordererSchema,
 		required: true   
 	},
-	email:{
+	email: {
 		type: String,
 		required: true,
 		validate: validator.isEmail
@@ -72,6 +74,30 @@ const orderSchema = new Schema({
 		required: true
 	}
 });
+
+orderSchema.statics.findInProductModel = function (productId) {
+	return new Promise(async function (resolve, reject) {
+		if (!_.isUndefined(productId)) {
+			await productModel.findById(productId)
+				.exec((err, product) => {
+					if (err) {
+						reject({
+							status: 'ERROR: NO PRODUCT WITH THIS ID IS AVAILABLE!'
+						});
+					} else {
+						resolve({
+							status: 'OK',
+							product
+						});
+					}
+				});
+		} else {
+			reject({
+				status: 'ERROR: NO PRODUCT ID COULD BE RETRIEVED!'
+			});
+		}
+	});
+};
 
 module.exports = mongoose.model('Order', orderSchema);
 
