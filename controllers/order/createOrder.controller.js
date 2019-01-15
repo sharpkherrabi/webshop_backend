@@ -29,7 +29,11 @@ module.exports = async function (req, res, next) {
 					error.statusCode = 500;
 					return next(error);
 				}
-				await productModel.findByIdAndUpdate(condition._id, { quantity: available - newOrder.product[i].quantity }, { runValidators: true, new: true });
+				try {
+					await productModel.findByIdAndUpdate(condition._id, { quantity: available - newOrder.product[i].quantity }, { runValidators: true, new: true });
+				} catch (error) {
+					return next(error);
+				}
 			}
 		}
 	}
