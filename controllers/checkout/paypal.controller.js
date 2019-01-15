@@ -26,7 +26,7 @@ module.exports = async (req, res, next) => {
 					return next(error);
 				}
 				let item = {};
-				allRoundPrice = order.price;
+				allRoundPrice = parseInt(order.price) / 100;
 				_.each(order.product, async function (product) {
 					// get each product in this order
 					item = await orderModel.findInProductModel(product.id);
@@ -41,7 +41,7 @@ module.exports = async (req, res, next) => {
 						items.push({
 							name: item.product.name,
 							sku: 'item',
-							price: item.product.unitPrice,
+							price: parseInt(item.product.unitPrice) / 100,
 							currency: 'EUR',
 							quantity: product.quantity
 						});
@@ -86,8 +86,11 @@ module.exports = async (req, res, next) => {
 			return next(error);
 		} else {
 			//get the redirection url from the payment object
-			redirectURL = _.chain(payment.links).filter({rel: 'approval_url'}).head().get('href').value();
-			res.redirect(redirectURL);
+			redirectURL = _.chain(payment.links).filter({ rel: 'approval_url' }).head().get('href').value();
+			res.status(200).json({
+				status: 'OK',
+				redirectURL
+			});
 		}
 	});
 };
