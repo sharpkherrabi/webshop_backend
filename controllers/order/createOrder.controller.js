@@ -10,39 +10,30 @@ module.exports = async function (req, res, next) {
 	if (!_.isUndefined(newOrder)) {
 		if (!_.isUndefined(newOrder.product)) {
 			newOrder.price = 0;
-			let condition = {};
+			let condition = {},
+				found = {}, available = 0;
 			for (let i in req.body.product) {
 				condition._id = req.body.product[i].id;
-				let found = await productModel.findById(condition._id, function (err) {
-					if (err) {
-						let error = new Error();
-						error.message = 'INTERNAL ERROR OCCURRED';
-						error.statusCode = 500;
-						return next(error);
-					}
-				}).exec();
+				found = await orderModel.findInProductModel(condition._id);
 
 				/** Calculate price */
-				newOrder.price = newOrder.price + found.unitPrice * newOrder.product[i].quantity;
+				newOrder.price = newOrder.price + found.product.unitPrice * newOrder.product[i].quantity;
 
 				/** Update product quantity number 
 				 * A.findByIdAndUpdate(id, update, options, callback) // executes
 				*/
-				let available = found.quantity;
-				if(available - newOrder.product[i].quantity < 0){
+				available = found.product.quantity;
+				if (available - newOrder.product[i].quantity < 0) {
 					let error = new Error();
 					error.message = 'NOT ENOUGH PRODUCTS IN WAREHOUSE ';
 					error.statusCode = 500;
 					return next(error);
 				}
-				await productModel.findByIdAndUpdate({_id: condition._id}, {$set: {quantity: available-newOrder.product[i].quantity}}, {runValidators: true}).exec((error)=>{
-					if (error){
-						let error = new Error();
-						error.message = 'COULDN\'T UPDATE WHILE ORDERING';
-						error.statusCode = 500;
-						return next(error);
-					}
-				});
+				try {
+					await productModel.findByIdAndUpdate(condition._id, { quantity: available - newOrder.product[i].quantity }, { runValidators: true, new: true });
+				} catch (error) {
+					return next(error);
+				}
 			}
 		}
 	}
