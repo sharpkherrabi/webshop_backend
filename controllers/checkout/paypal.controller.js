@@ -4,8 +4,8 @@ let config = require('../../config/config');
 const paypal = require('paypal-rest-sdk');
 module.exports = async (req, res, next) => {
 	const orderId = req.body.orderId,
-		returnUrl = `http://localhost:${config.serverPort}/checkout/paypal/success`, //dummy uri for now
-		cancelUrl = `http://localhost:${config.serverPort}/checkout/paypal/cancel`,	//dummy uri for now
+		returnUrl = `http://localhost:${config.frontendPort}/checkout/success`, //dummy uri for now
+		cancelUrl = `http://localhost:${config.frontendPort}/checkout/fail`,	//dummy uri for now
 		currency = 'EUR';
 	let allRoundPrice = 0, items = [];
 	if (_.isUndefined(orderId)) {

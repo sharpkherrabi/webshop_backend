@@ -5,6 +5,7 @@ const dev = {
 	mongoPort: 27017,
 	dbUrl: 'mongodb://localhost', //windows docker-toolbox: instead of localhost -> mongo and in postman 192.168.99.100:3000
 	serverPort: 3000,
+	frontendPort: 4200,
 	originsWhitelist: [
 		'http://localhost:4200',      //CORS white list
 	],
