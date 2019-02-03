@@ -31,7 +31,7 @@
   &emsp; http://localhost:3000/order/update/:id  
   &emsp; http://localhost:3000/order/delete/:id  
   Order JSON Object (product id ersetzen mit der real existierenden):  
-    `{  
+    {  
         "orderer": {  
         "firstname": "name,  
         "lastname": "lastname"  
@@ -54,7 +54,7 @@
         ],  
         "email": "alpha@gmail.com",  
         "price": 191800  
-    }`  
+    } 
 * PayPal  
   
 ## Test
@@ -72,8 +72,8 @@
     `$ docker-compose down`   
     Bei Problemen: liegt meistens daran, dass benötigte Container schon benutzt werden ->  
     `$ docker container ps -a`  
-    `$ docker container stop  <ertsten 3 ID Zeichen>`  
-    `$ docker container rm <ersten 3 ID Zeichen>` 
+    `$ docker container stop  <die ertsten 3 ID Zeichen>`  
+    `$ docker container rm <die ersten 3 ID Zeichen>` 
 * Routen unter Windows zugreifbar über 192.168.99.100 (oder über machine IP die angezeigt wird wenn Docker Toolbox gestartet wird)  
   http://192.168.99.100:3000/product/create  
 
