@@ -12,7 +12,7 @@
   `$ npm install`  
   * Backend starten  
   `$ npm start`  
-  Testdaten befinden sich in product.txt. Einfügen Zeile für Zeile.  
+  * Testdaten befinden sich in product.txt. Einfügen Zeile für Zeile.  
 ## Routen  
 * Produkt (product)  
   &emsp; http://localhost:3000/product/create  
@@ -30,7 +30,7 @@
   &emsp; http://localhost:3000/order/get/:id  
   &emsp; http://localhost:3000/order/update/:id  
   &emsp; http://localhost:3000/order/delete/:id  
-  Order JSON Model (product id ersetzen mit der real existierenden):  
+  Order JSON Object (product id ersetzen mit der real existierenden):  
     `{  
         "orderer": {  
         "firstname": "name,  
