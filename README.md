@@ -1,10 +1,10 @@
 # Webshop Backend  
 ## Funktionalität
-  Produkte und Bestellungen können angelegt, bearbeitet, angezeigt und gelöscht werden. 
-  Produkteigenschaften: Name, Beschreibung, Anzahl(Verfügbar), Preis und Image(URL). 
-  Bestellungseigenschaften: Besteller, Producten(id, Anzahl), Adresse(Straße, HausNr, Postleitzahl, Stadt, Land), Email.  
+  Produkte und Bestellungen können angelegt, bearbeitet, angezeigt und gelöscht werden.   
+  Produkteigenschaften: Name, Beschreibung, Anzahl(Verfügbar), Preis und Image(URL).  
+  Bestellungseigenschaften: Besteller, Producten(id, Anzahl), Adresse(Straße, HausNr, Postleitzahl, Stadt, Land), Email.   
   Beim ertellen des Orders: 1. wird die Anzahl von verfügbaren Produkten reduziert. 2. Preis wird berechnet.  
-  Die Suche nach Produkten funktioniert sowie einzeln nach Namen und Beschreibung  als auch nach Namen und Beschreibung zusammen.  
+  Die Suche nach Produkten funktioniert sowie einzeln nach Namen und Beschreibung  als auch nach Namen und Beschreibung zusammen.   
   
 ## Backend starten  
   * Mongo local installieren  
