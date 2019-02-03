@@ -31,7 +31,7 @@
   &emsp; http://localhost:3000/order/update/:id  
   &emsp; http://localhost:3000/order/delete/:id  
   Order JSON Object (product id ersetzen mit der real existierenden):  
-    {  
+    `{  
         "orderer": {  
         "firstname": "name,  
         "lastname": "lastname"  
@@ -54,11 +54,11 @@
         ],  
         "email": "alpha@gmail.com",  
         "price": 191800  
-    } 
+    }`  
 * PayPal  
   
 ## Test
-  * Mocha und Eslint
+  * Mocha und Eslint  
   `$ npm test`
 
 ## Docker  
