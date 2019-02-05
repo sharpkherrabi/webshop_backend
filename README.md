@@ -34,10 +34,10 @@
   &emsp; http://localhost:3000/order/delete/:id  
   Order JSON Object (product id ersetzen mit der real existierenden):  
 ```
-    {  
+	{
         "orderer": {  
-        "firstname": "name,  
-        "lastname": "lastname"  
+        "firstname": "Max",  
+        "lastname": "Mustermann"  
         },  
         "address": {  
            "street": "hilpert 1",  
@@ -46,17 +46,16 @@
             "zip": "44321",  
             "country": "Deutschland"  
         },  
-        "product": {  
+        "product": [{  
             "id": "5c33622792e9f848fb32b4dd",  
             "quantity": 1  
         },  
         {  
-            "id": "5c3e2838ee546a91e9e836ce",  
+            "id": "5c33a2ca92e9f848fb32b7c5",  
             "quantity": 1  
         }  
         ],  
-        "email": "alpha@gmail.com",  
-        "price": 191800  
+        "email": "maxmustermann@gmail.com"
     }
 ```  
   
