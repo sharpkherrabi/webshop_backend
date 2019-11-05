@@ -21,7 +21,7 @@
     "csv-express": "^1.2.2",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
-    "mongoose": "^5.4.0",
+    "mongoose": "^5.7.5",
     "mongoose-csv": "^1.1.0",
     "mongoose-validator": "^2.1.0",
     "paypal-rest-sdk": "^1.8.1",
