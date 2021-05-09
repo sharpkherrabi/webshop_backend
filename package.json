@@ -20,7 +20,7 @@
     "cors": "^2.8.5",
     "csv-express": "^1.2.2",
     "express": "^4.16.4",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "mongoose": "^5.4.0",
     "mongoose-csv": "^1.1.0",
     "mongoose-validator": "^2.1.0",
